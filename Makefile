@@ -6,7 +6,7 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:21:03 by franmart          #+#    #+#              #
-#    Updated: 2022/11/02 18:16:00 by franmart         ###   ########.fr        #
+#    Updated: 2022/11/02 21:29:42 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ RM = rm -rf
 LIBFT_NAME = libftprintf.a
 LIBFT_DIR = ft_printf/
 
-SRC = utils.c	
+SRC = pipex.c\
+	  utils.c	
 
 
 OBJ = $(SRC:.c=.o)

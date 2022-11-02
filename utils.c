@@ -6,11 +6,26 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/02 19:50:37 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/02 21:19:37 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+int	ft_open_file(char *filename, int mode)
+{
+	int	fd;
+
+	if (mode == READ_MODE)
+		fd = open(filename, O_RDONLY);
+	else if (mode == WRITE_MODE)
+		fd = open(filename, O_WRONLY | O_CREAT, 0777);
+	else if (mode == APPEND_MODE)
+		fd = open(filename, O_WRONLY | O_CREAT | O_APPEND, 0777);
+	else
+		fd = -1;
+	return (fd);
+}
 
 char	*is_in_path(char *cmd, char *path)
 {
@@ -51,6 +66,9 @@ char	*ft_find_executable(char *cmd, char **env)
 	return (file);
 }
 
+/*
+
+// no olvidarme de hacer free una vez tengamos el ejecutable 
 int	main(int argc, char **argv, char **environ)
 {
 	char	*str;
@@ -61,3 +79,4 @@ int	main(int argc, char **argv, char **environ)
 	free(str);
 	return (0);
 }
+*/
