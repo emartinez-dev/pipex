@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/02 19:39:58 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/02 19:50:37 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*is_in_path(char *cmd, char *path)
 	return (0);
 }
 
-char	*find_executable(char *cmd, char **env)
+char	*ft_find_executable(char *cmd, char **env)
 {
 	int		i;
 	int		flag;
@@ -55,8 +55,9 @@ int	main(int argc, char **argv, char **environ)
 {
 	char	*str;
 
-	str = find_executable(argv[1], environ);
-	ft_printf("%s\n", str);
+	str = ft_find_executable(argv[1], environ);
+	if (str)
+		ft_printf("%s\n", str);
 	free(str);
 	return (0);
 }
