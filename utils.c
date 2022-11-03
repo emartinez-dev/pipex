@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/02 21:19:37 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:40:05 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,28 @@ int	ft_open_file(char *filename, int mode)
 		fd = open(filename, O_WRONLY | O_CREAT | O_APPEND, 0777);
 	else
 		fd = -1;
+	if (fd == -1)
+		exit(1);
 	return (fd);
+}
+
+void	close_pipes(int *fd)
+{
+	close(fd[READ_END]);
+	close(fd[WRITE_END]);
+}
+
+void	check_args(int argc)
+{
+	if (argc < 5)
+		ft_printf("Not enough arguments.");
+	if (argc > 5)
+		ft_printf("Too many arguments.");
+	if (argc != 5)
+	{
+		ft_printf(" Usage: ./pipex file1 cmd1 cmd1 file2\n");
+		exit(1);
+	}
 }
 
 char	*is_in_path(char *cmd, char *path)
