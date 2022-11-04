@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/03 17:40:05 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:43:56 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	check_args(int argc)
 	if (argc != 5)
 	{
 		ft_printf(" Usage: ./pipex file1 cmd1 cmd1 file2\n");
-		exit(1);
+		exit(3);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:03:53 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/03 17:41:00 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:44:48 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	first_child(char **argv, int pipe_fd[2], char **environ)
 	if (!exec)
 	{
 		ft_printf("pipex: command not found: %s\n", args[0]);
-		exit(0);
+		exit(2);
 	}
 	infile = ft_open_file(argv[1], READ_MODE);
 	dup2(infile, STDIN_FILENO);
@@ -31,6 +31,7 @@ void	first_child(char **argv, int pipe_fd[2], char **environ)
 	close_pipes(pipe_fd);
 	close(infile);
 	execve(exec, args, environ);
+	exit(2);
 }
 
 void	second_child(char **argv, int pipe_fd[2], char **environ)
@@ -44,7 +45,7 @@ void	second_child(char **argv, int pipe_fd[2], char **environ)
 	if (!exec)
 	{
 		ft_printf("pipex: command not found: %s\n", args[0]);
-		exit(0);
+		exit(2);
 	}
 	outfile = ft_open_file(argv[4], WRITE_MODE);
 	dup2(pipe_fd[READ_END], STDIN_FILENO);
@@ -52,6 +53,7 @@ void	second_child(char **argv, int pipe_fd[2], char **environ)
 	close_pipes(pipe_fd);
 	close(outfile);
 	execve(exec, args, environ);
+	exit(2);
 }
 
 int	main(int argc, char **argv, char **environ)
