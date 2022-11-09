@@ -6,13 +6,13 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:21:03 by franmart          #+#    #+#              #
-#    Updated: 2022/11/02 21:29:42 by franmart         ###   ########.fr        #
+#    Updated: 2022/11/09 17:21:14 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 
-CC = gcc
+CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 

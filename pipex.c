@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:03:53 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/03 17:44:48 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:57:00 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ void	first_child(char **argv, int pipe_fd[2], char **environ)
 		exit(2);
 	}
 	infile = ft_open_file(argv[1], READ_MODE);
+	if (!infile)
+		exit(2);
 	dup2(infile, STDIN_FILENO);
 	dup2(pipe_fd[WRITE_END], STDOUT_FILENO);
 	close_pipes(pipe_fd);
 	close(infile);
 	execve(exec, args, environ);
+	perror("Error");
 	exit(2);
 }
 
@@ -53,6 +56,7 @@ void	second_child(char **argv, int pipe_fd[2], char **environ)
 	close_pipes(pipe_fd);
 	close(outfile);
 	execve(exec, args, environ);
+	perror("Error");
 	exit(2);
 }
 

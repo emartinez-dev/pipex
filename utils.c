@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/09 17:46:17 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:58:41 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ int	ft_open_file(char *filename, int mode)
 	else
 		fd = -1;
 	if (fd == -1)
-		exit(1);
+	{
+		ft_printf("pipex: no such file or directory: %s\n", filename);
+		perror("Error");
+		exit(4);
+	}
 	return (fd);
 }
 
