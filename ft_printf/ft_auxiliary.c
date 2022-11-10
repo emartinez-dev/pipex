@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_str.c                                     :+:      :+:    :+:   */
+/*   ft_auxiliary.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 18:20:34 by franmart          #+#    #+#             */
-/*   Updated: 2022/10/13 20:30:47 by franmart         ###   ########.fr       */
+/*   Created: 2022/11/07 18:08:04 by franmart          #+#    #+#             */
+/*   Updated: 2022/11/07 18:15:45 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_parse_str(char *str)
+unsigned int	ft_len(char *str)
 {
-	int	len;
+	unsigned int	i;
 
-	if (!str)
-		str = "(null)";
-	len = ft_strlen(str);
-	ft_putstr_fd(str, 1);
-	return (len);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *s)
+{
+	write(1, s, ft_len(s));
 }

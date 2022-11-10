@@ -6,31 +6,35 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:30:50 by franmart          #+#    #+#             */
-/*   Updated: 2022/10/16 13:21:35 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:01:11 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-#include <limits.h>
 
 int	ft_check_arg(char c, va_list args)
 {
-	int	len;
+	int		len;
+	char	*base;
 
 	len = 0;
+	base = "0123456789";
+	if (c == 'x' || c == 'p')
+		base = "0123456789abcdef";
+	if (c == 'X')
+		base = "0123456789ABCDEF";
 	if (c == 'c')
 		len += ft_parse_char(va_arg(args, int));
 	if (c == 's')
 		len += ft_parse_str(va_arg(args, char *));
 	if (c == 'i' || c == 'd')
-		len += ft_parse_int(va_arg(args, int));
+		len += ft_parse_nbr(va_arg(args, int), base, c);
 	if (c == 'x' || c == 'X')
-		len += ft_parse_hex(va_arg(args, unsigned int), c);
+		len += ft_parse_nbr(va_arg(args, unsigned int), base, c);
 	if (c == 'p')
-		len += ft_parse_ptr(va_arg(args, unsigned long long));
+		len += ft_parse_nbr(va_arg(args, unsigned long long), base, c);
 	if (c == 'u')
-		len += ft_parse_u_int(va_arg(args, unsigned int));
+		len += ft_parse_nbr(va_arg(args, unsigned int), base, c);
 	if (c == '%')
 		len += ft_parse_char('%');
 	return (len);

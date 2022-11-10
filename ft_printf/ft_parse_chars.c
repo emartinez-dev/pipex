@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_int.c                                     :+:      :+:    :+:   */
+/*   ft_parse_chars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 18:34:53 by franmart          #+#    #+#             */
-/*   Updated: 2022/10/16 13:16:52 by franmart         ###   ########.fr       */
+/*   Created: 2022/10/12 18:20:34 by franmart          #+#    #+#             */
+/*   Updated: 2022/11/07 19:12:28 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_parse_int(int i)
+int	ft_parse_str(char *str)
 {
-	int		len;
-	char	*str;
+	int	len;
 
-	str = ft_itoa(i);
-	len = ft_strlen(str);
-	free(str);
-	ft_putnbr_fd(i, 1);
+	if (!str)
+		str = "(null)";
+	len = ft_len(str);
+	ft_putstr(str);
 	return (len);
+}
+
+int	ft_parse_char(char c)
+{
+	ft_putchar(c);
+	return (1);
 }

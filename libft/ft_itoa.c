@@ -6,13 +6,13 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 12:51:50 by franmart          #+#    #+#             */
-/*   Updated: 2022/10/13 21:01:06 by franmart         ###   ########.fr       */
+/*   Updated: 2022/10/04 18:34:18 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(long int n)
+int	ft_intlen(int n)
 {
 	int	count;
 
@@ -56,12 +56,14 @@ int	ft_iterative_power(int nb, int power)
 	return (result);
 }
 
-char	*ft_itoa(long int n)
+char	*ft_itoa(int n)
 {
 	int		n_len;
 	char	*str;
 	int		stop;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	stop = 0;
 	n_len = ft_intlen(n);
 	str = malloc(sizeof(char) * (n_len + 1));
