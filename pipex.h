@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/03 17:29:49 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:10:54 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define APPEND_MODE 2
 
 # include "ft_printf/ft_printf.h"
+# include "libft/libft.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <sys/types.h>
