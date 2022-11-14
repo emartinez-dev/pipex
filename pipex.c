@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:03:53 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/09 17:57:00 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:34:34 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ void	first_child(char **argv, int pipe_fd[2], char **environ)
 	close_pipes(pipe_fd);
 	close(infile);
 	execve(exec, args, environ);
-	perror("Error");
-	exit(2);
+	print_error("Error");
 }
 
 void	second_child(char **argv, int pipe_fd[2], char **environ)
@@ -56,8 +55,7 @@ void	second_child(char **argv, int pipe_fd[2], char **environ)
 	close_pipes(pipe_fd);
 	close(outfile);
 	execve(exec, args, environ);
-	perror("Error");
-	exit(2);
+	print_error("Error");
 }
 
 int	main(int argc, char **argv, char **environ)
@@ -68,15 +66,15 @@ int	main(int argc, char **argv, char **environ)
 
 	check_args(argc);
 	if (pipe(pipe_fd) == -1)
-		perror("Error");
+		return (print_error("Error"));
 	pid1 = fork();
 	if (pid1 == -1)
-		perror("Error");
+		return (print_error("Error"));
 	if (pid1 == 0)
 		first_child(argv, pipe_fd, environ);
 	pid2 = fork();
 	if (pid2 == -1)
-		perror("Error");
+		return (print_error("Error"));
 	if (pid2 == 0)
 		second_child(argv, pipe_fd, environ);
 	close_pipes(pipe_fd);

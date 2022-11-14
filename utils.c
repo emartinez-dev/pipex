@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/09 17:58:41 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:49:00 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ int	ft_open_file(char *filename, int mode)
 		fd = -1;
 	if (fd == -1)
 	{
-		ft_printf("pipex: no such file or directory: %s\n", filename);
-		perror("Error");
-		exit(4);
+		ft_putstr_fd("pipex: no such file or directory: ", 2);
+		ft_putstr_fd(filename, 2);
+		ft_putchar_fd('\n', 2);
+		exit(1);
 	}
 	return (fd);
 }
