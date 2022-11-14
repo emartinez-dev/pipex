@@ -6,7 +6,7 @@
 #    By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:21:03 by franmart          #+#    #+#              #
-#    Updated: 2022/11/10 18:16:16 by franmart         ###   ########.fr        #
+#    Updated: 2022/11/10 18:38:11 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ LIBFT_NAME = libft.a
 LIBFT_DIR = libft/
 
 SRC = pipex.c\
+	  errors.c\
 	  utils.c
 
 
