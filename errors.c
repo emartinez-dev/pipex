@@ -6,15 +6,9 @@
 /*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:37:42 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/14 17:34:06 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:22:38 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	print_error(char *str)
-{
-	write(2, str, ft_strlen(str));
-	exit(1);
-	return (1);
-}
