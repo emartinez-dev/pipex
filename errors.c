@@ -6,12 +6,18 @@
 /*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:37:42 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/15 20:03:50 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:05:12 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
+/**
+ * @brief Prints an error message and exits the program
+ * 
+ * @param err_str error message
+ * @param cmd command or file that caused the error
+ */
 void	error_exec(char *err_str, char *cmd)
 {
 	ft_putstr_fd(err_str, STDERR_FILENO);

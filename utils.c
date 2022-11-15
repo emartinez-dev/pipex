@@ -6,12 +6,19 @@
 /*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/15 20:39:10 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:10:22 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
+/**
+ * @brief Opens a file in the desired mode and returns the file descriptor
+ * 
+ * @param filename name of the file to open
+ * @param mode mode in which the file will be opened
+ * @return int file descriptor
+ */
 int	ft_open_file(char *filename, int mode)
 {
 	int	fd;
@@ -27,12 +34,22 @@ int	ft_open_file(char *filename, int mode)
 	return (fd);
 }
 
+/**
+ * @brief Closes both ends of a pipe
+ * 
+ * @param fd pipe fd
+ */
 void	close_pipes(int *fd)
 {
 	close(fd[READ_END]);
 	close(fd[WRITE_END]);
 }
 
+/**
+ * @brief Checks the number of arguments and exits if it's not correct
+ * 
+ * @param argc number of arguments
+ */
 void	check_args(int argc)
 {
 	if (argc < 5)
@@ -46,6 +63,13 @@ void	check_args(int argc)
 	}
 }
 
+/**
+ * @brief Checks if the full PATH is valid
+ * 
+ * @param cmd command to check
+ * @param path command paths
+ * @return char* full path to the command or NULL if it's not valid
+ */
 char	*is_in_path(char *cmd, char *path)
 {
 	char	*file;
@@ -59,6 +83,13 @@ char	*is_in_path(char *cmd, char *path)
 	return (0);
 }
 
+/**
+ * @brief Checks if a command is in the PATH and returns the full path
+ * 
+ * @param cmd command to check
+ * @param env environment variables
+ * @return char* command full path
+ */
 char	*ft_find_executable(char *cmd, char **env)
 {
 	int		i;
@@ -84,18 +115,3 @@ char	*ft_find_executable(char *cmd, char **env)
 	free(paths);
 	return (file);
 }
-
-/*
-
-// no olvidarme de hacer free una vez tengamos el ejecutable 
-int	main(int argc, char **argv, char **environ)
-{
-	char	*str;
-
-	str = ft_find_executable(argv[1], environ);
-	if (str)
-		ft_printf("%s\n", str);
-	free(str);
-	return (0);
-}
-*/

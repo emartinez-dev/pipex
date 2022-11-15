@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:03:53 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/15 20:12:17 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:12:44 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,21 @@ TODO: trabajar los prints del STDERROR
 TODO: cambiar lo del waitpid a ver si se puede hacer sin eso 
 */
 
+/* 
+ * Ni idea de si esto se puede hacer con WIFEXITED, 
+ * creo que solo con waitpid también se pueden ver los códigos de salida
+ */
+
 #include "pipex.h"
 
+/**
+ * @brief Commands that the first child will execute
+ * 
+ * @param argv first command with its arguments
+ * @param pipe_fd pipe file descriptor
+ * @param infile input file descriptor
+ * @param environ environment variables
+ */
 void	first_child(char **argv, int pipe_fd[2], int infile, char **environ)
 {
 	char	**args;
@@ -32,6 +45,14 @@ void	first_child(char **argv, int pipe_fd[2], int infile, char **environ)
 	execve(exec, args, environ);
 }
 
+/**
+ * @brief Commands that the second child will execute
+ * 
+ * @param argv second command with its arguments
+ * @param pipe_fd pipe file descriptor
+ * @param outfile output file descriptor
+ * @param environ environment variables
+ */
 void	second_child(char **argv, int pipe_fd[2], int outfile, char **environ)
 {
 	char	**args;
@@ -68,10 +89,6 @@ int	main(int argc, char **argv, char **environ)
 	close_pipes(pipe_fd);
 	waitpid(pid[0], &status[0], 0);
 	waitpid(pid[1], &status[1], 0);
-	/* 
-	! Ni idea de si esto se puede hacer, creo que solo con waitpid también se
-	! pueden ver los códigos de salida
-	 */
 	if (WIFEXITED(status[0]))
 		return (WEXITSTATUS(status[0]));
 	if (WIFEXITED(status[1]))
