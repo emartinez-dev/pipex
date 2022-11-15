@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/15 19:23:22 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:00:42 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ char	*ft_find_executable(char *cmd, char **env);
 void	close_pipes(int *fd);
 void	check_args(int argc);
 int		ft_open_file(char *filename, int mode);
+void	error_exec(char *err_str, char *cmd);
 
 #endif
