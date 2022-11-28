@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/15 21:10:22 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:36:07 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_open_file(char *filename, int mode)
 	if (mode == READ_MODE)
 		fd = open(filename, O_RDONLY);
 	else if (mode == WRITE_MODE)
-		fd = open(filename, O_WRONLY | O_CREAT, 0644);
+		fd = open(filename, O_TRUNC | O_RDWR | O_CREAT, 0644);
 	else
 		fd = -1;
 	if (fd == -1)
