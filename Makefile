@@ -6,13 +6,13 @@
 #    By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:21:03 by franmart          #+#    #+#              #
-#    Updated: 2022/11/10 18:38:11 by franmart         ###   ########.fr        #
+#    Updated: 2022/11/28 19:04:34 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 
-CC = gcc -g
+CC = gcc 
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
@@ -52,3 +52,4 @@ fclean: clean
 re:	fclean all
 
 .PHONY:	all clean fclean re
+
