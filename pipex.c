@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:03:53 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/28 18:32:27 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:10:22 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,7 @@ void	first_child(char **argv, int pipe_fd[2], int infile, char **environ)
 	if (!exec)
 	{
 		print_error("pipex: command not found: ", args[0]);
-		while (args && args[i])
-		{
-			free(args[i]);
-			i++;
-		}
-		free(args);
+		free_array(args);
 		exit(1);
 	}
 	dup2(infile, STDIN_FILENO);
@@ -76,12 +71,7 @@ void	second_child(char **argv, int pipe_fd[2], int outfile, char **environ)
 	if (!exec)
 	{
 		print_error("pipex: command not found: ", args[0]);
-		while (args && args[i])
-		{
-			free(args[i]);
-			i++;
-		}
-		free(args);
+		free_array(args);
 		exit(1);
 	}
 	dup2(pipe_fd[READ_END], STDIN_FILENO);

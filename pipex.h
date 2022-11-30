@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/28 19:05:58 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:09:14 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	check_args(int argc);
 int		ft_open_file(char *filename, int mode);
 void	print_error(char *err_str, char *cmd);
 void	error_exec(char *err_str, char *cmd);
+void	free_array(char **arr);
 
 #endif

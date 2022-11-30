@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/28 17:36:07 by franmart         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:08:34 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@ int	ft_open_file(char *filename, int mode)
 	if (fd == -1)
 		error_exec("pipex: file not found: ", filename);
 	return (fd);
+}
+
+void	free_array(char **arr)
+{
+	int	i;
+
+	i = -1;
+	while (arr[++i])
+		free(arr[i]);
+	free(arr);
 }
 
 /**
@@ -70,7 +80,7 @@ void	check_args(int argc)
  * @param path command paths
  * @return char* full path to the command or NULL if it's not valid
  */
-char	*is_in_path(char *cmd, char *path)
+char	*cmd_in_path(char *cmd, char *path)
 {
 	char	*file;
 
@@ -105,13 +115,10 @@ char	*ft_find_executable(char *cmd, char **env)
 	i = -1;
 	while (paths[++i] && flag == 0)
 	{
-		file = is_in_path(paths[i], cmd);
+		file = cmd_in_path(paths[i], cmd);
 		if (file)
 			flag = 1;
 	}
-	i = -1;
-	while (paths[++i])
-		free(paths[i]);
-	free(paths);
+	free_array(paths);
 	return (file);
 }
