@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/30 21:09:14 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/10 18:51:59 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 # define READ_MODE 0
 # define WRITE_MODE 1
 
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
+# include "../lib/libft/include/libft.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <sys/types.h>

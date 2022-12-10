@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+         #
+#    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:21:03 by franmart          #+#    #+#              #
-#    Updated: 2022/11/28 19:04:34 by franmart         ###   ########.fr        #
+#    Updated: 2022/12/10 18:52:27 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,23 +16,20 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
-PRINTF_NAME = libftprintf.a
-PRINTF_DIR = ft_printf/
-
 LIBFT_NAME = libft.a
-LIBFT_DIR = libft/
+LIBFT_DIR = lib/libft/
 
-SRC = pipex.c\
+SRC_DIR = src/
+_SRC = pipex.c\
 	  errors.c\
 	  utils.c
-
+SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 OBJ = $(SRC:.c=.o)
 
 ${NAME}: ${OBJ}
-	$(MAKE) all -C $(PRINTF_DIR)
 	$(MAKE) all -C $(LIBFT_DIR)
-	$(CC) $(OBJ) -L$(PRINTF_DIR) -lftprintf -L$(LIBFT_DIR) -lft -o $(NAME)
+	$(CC) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
 
 %.o: %.c
 	${CC} ${FLAGS} -c $^ -o $@
@@ -40,12 +37,10 @@ ${NAME}: ${OBJ}
 all: ${NAME}
 
 clean:
-		$(MAKE) clean -C $(PRINTF_DIR)
 		$(MAKE) clean -C $(LIBFT_DIR)
 		${RM} ${OBJ}
 
 fclean: clean
-		$(MAKE) fclean -C $(PRINTF_DIR)
 		$(MAKE) fclean -C $(LIBFT_DIR)
 		${RM} ${NAME}
 

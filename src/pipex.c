@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: franmart <franmart@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:03:53 by franmart          #+#    #+#             */
-/*   Updated: 2022/11/30 21:10:22 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/10 18:51:27 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ TODO: cambiar lo del waitpid a ver si se puede hacer sin eso
  * creo que solo con waitpid también se pueden ver los códigos de salida
  */
 
-#include "pipex.h"
+#include "../inc/pipex.h"
 
 /**
  * @brief Commands that the first child will execute
