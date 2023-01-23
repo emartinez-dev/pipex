@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:22:04 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 20:51:32 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:57:57 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	find_commands(t_pipex *pipex, char **argv, char **env)
 	char	**command;
 
 	i = -1;
-	printf("N_cmds %d\n", pipex->n_cmds);
 	pipex->cmds = ft_calloc(sizeof(t_cmd), pipex->n_cmds);
 	while (++i < pipex->n_cmds)
 	{
