@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:22:04 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 19:56:48 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:16:22 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int	init_pipex(t_pipex *pipex, int argc, char **argv, char **env)
 	pipex->n_cmds = argc - 3;
 	pipex->pids = ft_calloc(sizeof(int), pipex->n_cmds);
 	pipex->status = ft_calloc(sizeof(int), pipex->n_cmds);
-	if (init_commands(pipex, argv, env))
-		return (1);
-	if (init_pipes(pipex))
+	if (find_commands(pipex, argv, env))
+		return (2);
+	if (create_pipes(pipex))
 		return (3);
 	return (0);
 }
 
-int	init_commands(t_pipex *pipex, char **argv, char **env)
+int	find_commands(t_pipex *pipex, char **argv, char **env)
 {
 	int		i;
 	char	**command;
@@ -49,7 +49,7 @@ int	init_commands(t_pipex *pipex, char **argv, char **env)
 	return (0);
 }
 
-int	init_pipes(t_pipex *pipex)
+int	create_pipes(t_pipex *pipex)
 {
 	int	i;
 
@@ -57,7 +57,7 @@ int	init_pipes(t_pipex *pipex)
 	pipex->pipes_fd = ft_calloc(sizeof(int *), pipex->n_pipes);
 	while (++i < pipex->n_pipes)
 	{
-		pipex->pipes_fd[i] = ft_calloc(sizeof(int[2]), 1);
+		pipex->pipes_fd[i] = ft_calloc(sizeof(int *), 1);
 		if (pipe(pipex->pipes_fd[i]) == -1)
 			return (1);
 	}

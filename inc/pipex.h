@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 19:58:41 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:18:15 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # include <errno.h>
 # include <string.h>
 
-typedef	struct s_cmd
+typedef struct s_cmd
 {
 	char	*exec;
 	char	**args;
@@ -49,21 +49,29 @@ typedef struct s_pipex
 	int		*status;
 }	t_pipex;
 
+/* init.c */
+int		init_pipex(t_pipex *pipex, int argc, char **argv, char **env);
+int		find_commands(t_pipex *pipex, char **argv, char **env);
+int		create_pipes(t_pipex *pipex);
+
+/* parser.c */
 char	*ft_find_executable(char *cmd, char **env);
 char	**ft_find_args(char *cmd);
-void	close_pipes(t_pipex *pipex);
 int		check_args(int argc);
 
-int		ft_open_file(char *filename, int mode);
-char	*cmd_in_path(char *cmd, char *path);
+/* childs.c */
+void	exec_child(t_pipex *pipex, int child);
 
+/* errors.c */
 void	print_error(char *err_str, char *cmd);
 void	error_exec(char *err_str, char *cmd);
 
-int		init_pipex(t_pipex *pipex, int argc, char **argv, char **env);
-int		init_commands(t_pipex *pipex, char **argv, char **env);
-int		init_pipes(t_pipex *pipex);
+/* exit.c */
+int		wait_childs(t_pipex *pipex);
+void	close_pipes(t_pipex *pipex);
 
-void	exec_child(t_pipex *pipex, int child);
+/* utils.c */
+int		ft_open_file(char *filename, int mode);
+char	*cmd_in_path(char *cmd, char *path);
 
 #endif
