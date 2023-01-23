@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 20:18:15 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:45:13 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_cmd
 {
 	char	*exec;
 	char	**args;
-	char	**env;
 }	t_cmd;
 
 typedef struct s_pipex
@@ -47,6 +46,7 @@ typedef struct s_pipex
 	int		**pipes_fd;
 	int		*pids;
 	int		*status;
+	char	**env;
 }	t_pipex;
 
 /* init.c */
@@ -69,6 +69,7 @@ void	error_exec(char *err_str, char *cmd);
 /* exit.c */
 int		wait_childs(t_pipex *pipex);
 void	close_pipes(t_pipex *pipex);
+void	free_everything(t_pipex *pipex);
 
 /* utils.c */
 int		ft_open_file(char *filename, int mode);

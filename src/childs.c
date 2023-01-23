@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:08:24 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 20:15:50 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:45:18 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	exec_child(t_pipex *pipex, int child)
 		dup2(pipex->pipes_fd[child][WRITE_END], STDOUT_FILENO);
 		close(pipex->pipes_fd[child][READ_END]);
 	}
-	execve(pipex->cmds[child].exec, pipex->cmds[child].args, pipex->cmds->env);
+	execve(pipex->cmds[child].exec, pipex->cmds[child].args, pipex->env);
 }

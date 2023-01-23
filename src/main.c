@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:03:53 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 20:16:32 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:39:32 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	main(int argc, char **argv, char **env)
 	}
 	close_pipes(&pipex);
 	status = wait_childs(&pipex);
+	free_everything(&pipex);
 	return (status);
 }
