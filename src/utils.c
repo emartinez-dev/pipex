@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/10 18:51:33 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:29:05 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,6 @@ int	ft_open_file(char *filename, int mode)
 	if (fd == -1)
 		error_exec("pipex: file not found: ", filename);
 	return (fd);
-}
-
-void	free_array(char **arr)
-{
-	int	i;
-
-	i = -1;
-	while (arr[++i])
-		free(arr[i]);
-	free(arr);
 }
 
 /**
@@ -119,6 +109,6 @@ char	*ft_find_executable(char *cmd, char **env)
 		if (file)
 			flag = 1;
 	}
-	free_array(paths);
+	ft_free_array(paths);
 	return (file);
 }
