@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 17:02:41 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:58:41 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,19 @@ typedef struct s_pipex
 
 char	*ft_find_executable(char *cmd, char **env);
 char	**ft_find_args(char *cmd);
-void	close_pipes(int *fd);
+void	close_pipes(t_pipex *pipex);
 int		check_args(int argc);
+
 int		ft_open_file(char *filename, int mode);
+char	*cmd_in_path(char *cmd, char *path);
+
 void	print_error(char *err_str, char *cmd);
 void	error_exec(char *err_str, char *cmd);
+
 int		init_pipex(t_pipex *pipex, int argc, char **argv, char **env);
+int		init_commands(t_pipex *pipex, char **argv, char **env);
+int		init_pipes(t_pipex *pipex);
+
+void	exec_child(t_pipex *pipex, int child);
 
 #endif
