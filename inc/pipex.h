@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 10:29:39 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:02:41 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,32 @@
 # include <errno.h>
 # include <string.h>
 
+typedef	struct s_cmd
+{
+	char	*exec;
+	char	**args;
+	char	**env;
+}	t_cmd;
+
+typedef struct s_pipex
+{
+	int		n_cmds;
+	int		n_pipes;
+	int		infile;
+	int		outfile;
+	t_cmd	*cmds;
+	int		**pipes_fd;
+	int		*pids;
+	int		*status;
+}	t_pipex;
+
 char	*ft_find_executable(char *cmd, char **env);
+char	**ft_find_args(char *cmd);
 void	close_pipes(int *fd);
-void	check_args(int argc);
+int		check_args(int argc);
 int		ft_open_file(char *filename, int mode);
 void	print_error(char *err_str, char *cmd);
 void	error_exec(char *err_str, char *cmd);
+int		init_pipex(t_pipex *pipex, int argc, char **argv, char **env);
 
 #endif
