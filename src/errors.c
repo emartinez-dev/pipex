@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:37:42 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/10 18:51:16 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:31:58 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 void	print_error(char *err_str, char *cmd)
 {
 	ft_putstr_fd(err_str, STDERR_FILENO);
+	ft_putchar_fd(' ', STDERR_FILENO);
 	ft_putstr_fd(cmd, STDERR_FILENO);
 	ft_putchar_fd('\n', STDERR_FILENO);
 }

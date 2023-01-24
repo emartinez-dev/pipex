@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 20:45:13 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:42:11 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		create_pipes(t_pipex *pipex);
 /* parser.c */
 char	*ft_find_executable(char *cmd, char **env);
 char	**ft_find_args(char *cmd);
-int		check_args(int argc);
+int		check_args(int argc, char **env);
 
 /* childs.c */
 void	exec_child(t_pipex *pipex, int child);
