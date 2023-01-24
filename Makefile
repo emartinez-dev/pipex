@@ -6,13 +6,13 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:21:03 by franmart          #+#    #+#              #
-#    Updated: 2022/12/10 18:52:27 by franmart         ###   ########.fr        #
+#    Updated: 2023/01/23 20:14:56 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 
-CC = gcc 
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
@@ -20,9 +20,14 @@ LIBFT_NAME = libft.a
 LIBFT_DIR = lib/libft/
 
 SRC_DIR = src/
-_SRC = pipex.c\
-	  errors.c\
-	  utils.c
+_SRC =	main.c\
+		errors.c\
+		utils.c\
+		parser.c\
+		init.c\
+		childs.c\
+		exit.c\
+
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 OBJ = $(SRC:.c=.o)
@@ -47,4 +52,3 @@ fclean: clean
 re:	fclean all
 
 .PHONY:	all clean fclean re
-
