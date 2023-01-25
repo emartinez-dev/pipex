@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:50:35 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 20:06:48 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:00:04 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ int	ft_open_file(char *filename, int mode)
 {
 	int	fd;
 
-	if (mode == READ_MODE)
+	if (ft_strncmp(filename, "STDIN", 6) == 0)
+		fd = STDIN_FILENO;
+	else if (mode == READ_MODE)
 		fd = open(filename, O_RDONLY);
 	else if (mode == WRITE_MODE)
-		fd = open(filename, O_TRUNC | O_RDWR | O_CREAT, 0644);
+		fd = open(filename, O_TRUNC | O_WRONLY | O_CREAT, 0644);
+	else if (mode == APPEND_MODE)
+		fd = open(filename, O_WRONLY | O_APPEND, 0644);
 	else
 		fd = -1;
 	if (fd == -1)

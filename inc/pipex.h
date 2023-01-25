@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/24 16:42:11 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:46:59 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 
 # define READ_MODE 0
 # define WRITE_MODE 1
+# define APPEND_MODE 2
+
+# define HERE_DOC "here_doc"
 
 # include "../lib/libft/include/libft.h"
 # include <unistd.h>
