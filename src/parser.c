@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:32 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/24 16:41:46 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:15:28 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ int	check_args(int argc, char **env)
 	if (!env)
 		return (2);
 	if (argc < 5)
-		ft_printf("Not enough arguments.");
-	if (argc > 5)
-		ft_printf("Too many arguments.");
-	if (argc != 5)
 	{
+		ft_printf("Not enough arguments.");
 		ft_printf(" Usage: ./pipex file1 cmd1 cmd1 file2\n");
 		return (1);
 	}
