@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:03:53 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/24 16:42:02 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:28:18 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	main(int argc, char **argv, char **env)
 		return (2);
 	while (++child < pipex.n_cmds)
 	{
-		if (!pipex.cmds[child].exec)
+		if (!pipex.cmds[child].exec &&
+				ft_strncmp(argv[child + 1], HERE_DOC, ft_strlen(HERE_DOC)))
 			print_error("pipex: command not found:", argv[++child + 1]);
 		pipex.pids[child] = fork();
 		if (pipex.pids[child] == 0)

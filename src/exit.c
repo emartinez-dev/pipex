@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 19:02:22 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 20:59:10 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:35:31 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void	free_everything(t_pipex *pipex)
 	free(pipex->pipes_fd);
 	free(pipex->pids);
 	free(pipex->status);
+	free(pipex->del);
 }

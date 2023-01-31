@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 00:07:54 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/25 13:46:59 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:28:30 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ typedef struct s_pipex
 	int		*pids;
 	int		*status;
 	char	**env;
+	int		heredoc;
+	char	*del;
 }	t_pipex;
 
 /* init.c */
@@ -64,6 +66,7 @@ int		check_args(int argc, char **env);
 
 /* childs.c */
 void	exec_child(t_pipex *pipex, int child);
+void	here_doc(t_pipex *pipex);
 
 /* errors.c */
 void	print_error(char *err_str, char *cmd);

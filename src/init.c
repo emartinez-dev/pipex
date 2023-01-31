@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:22:04 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/25 15:43:20 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:36:14 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	init_pipex(t_pipex *pipex, int argc, char **argv, char **env)
 {
+	pipex->heredoc = ft_strncmp(argv[1], HERE_DOC, ft_strlen(argv[1])) == 0;
 	pipex->env = env;
-	if (ft_strncmp(argv[1], HERE_DOC, ft_strlen(HERE_DOC)) == 0)
+	if (pipex->heredoc)
 	{
-		pipex->infile = ft_open_file("STDIN", READ_MODE);
+		pipex->del = ft_strjoin(argv[2], "\n");
+		pipex->infile = 666;
 		pipex->outfile = ft_open_file(argv[argc - 1], APPEND_MODE);
 	}
-	else 
+	else
 	{
 		pipex->infile = ft_open_file(argv[1], READ_MODE);
 		pipex->outfile = ft_open_file(argv[argc - 1], WRITE_MODE);
