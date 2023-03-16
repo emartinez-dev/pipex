@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:32 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/16 12:25:04 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:33:00 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	check_args(int argc, char **env)
 		ft_printf("You have to introduce 4 or more arguments.");
 		ft_printf(" Usage: ./pipex file1 {cm1 cmd2 ...} file2\n");
 		return (1);
-
 	}
 	return (0);
 }
