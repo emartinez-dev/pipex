@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:32 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/16 08:22:28 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:25:04 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,17 @@ char	**ft_find_args(char *cmd)
 {
 	char	**str;
 
-	str = 0;
 	if (ft_strchr(cmd, '\"'))
 		str = ft_split(cmd, '\"');
 	else if (ft_strchr(cmd, '\''))
 		str = ft_split(cmd, '\'');
 	else if (ft_strchr(cmd, ' '))
 		str = ft_split(cmd, ' ');
+	else
+	{
+		str = ft_calloc(2, sizeof(char *));
+		str[0] = ft_strdup(cmd);
+		str[1] = NULL;
+	}
 	return (str);
 }
