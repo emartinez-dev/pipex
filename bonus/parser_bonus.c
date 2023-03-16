@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:32 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/16 08:15:36 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/16 08:22:28 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int	check_args(int argc, char **env)
 {
 	if (!env)
 		return (2);
-	if (argc != 5)
+	if (argc < 5)
 	{
-		ft_printf("You have to introduce just 4 arguments.");
-		ft_printf(" Usage: ./pipex file1 cmd1 cmd2 file2\n");
+		ft_printf("You have to introduce 4 or more arguments.");
+		ft_printf(" Usage: ./pipex file1 {cm1 cmd2 ...} file2\n");
 		return (1);
+
 	}
 	return (0);
 }

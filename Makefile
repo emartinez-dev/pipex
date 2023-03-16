@@ -6,11 +6,12 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:21:03 by franmart          #+#    #+#              #
-#    Updated: 2023/01/23 20:14:56 by franmart         ###   ########.fr        #
+#    Updated: 2023/03/16 08:21:43 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
+BONUS_NAME = pipex_bonus
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
@@ -26,29 +27,48 @@ _SRC =	main.c\
 		parser.c\
 		init.c\
 		childs.c\
-		exit.c\
+		exit.c
+
+BONUS_DIR = bonus/
+_BONUS =	main_bonus.c\
+			errors_bonus.c\
+			utils_bonus.c\
+			parser_bonus.c\
+			init_bonus.c\
+			childs_bonus.c\
+			exit_bonus.c
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
-
 OBJ = $(SRC:.c=.o)
+
+BONUS_SRC = $(addprefix $(BONUS_DIR), $(_BONUS))
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 ${NAME}: ${OBJ}
 	$(MAKE) all -C $(LIBFT_DIR)
-	$(CC) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
 
 %.o: %.c
 	${CC} ${FLAGS} -c $^ -o $@
 
 all: ${NAME}
 
+${BONUS_NAME}: ${BONUS_OBJ}
+	$(MAKE) all -C $(LIBFT_DIR)
+	$(CC) $(FLAGS) $(BONUS_OBJ) -L$(LIBFT_DIR) -lft -o $(BONUS_NAME)
+
+bonus: ${BONUS_NAME}
+
 clean:
 		$(MAKE) clean -C $(LIBFT_DIR)
 		${RM} ${OBJ}
+		${RM} ${BONUS_OBJ}
 
 fclean: clean
 		$(MAKE) fclean -C $(LIBFT_DIR)
 		${RM} ${NAME}
+		${RM} ${BONUS_NAME}
 
 re:	fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re bonus
