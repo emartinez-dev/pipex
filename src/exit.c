@@ -6,11 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 19:02:22 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/23 20:59:10 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:24:41 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/pipex.h"
+#include "pipex.h"
 
 int	wait_childs(t_pipex *pipex)
 {

@@ -6,11 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:32 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/16 12:19:12 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:24:52 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/pipex.h"
+#include "pipex.h"
 
 int	check_args(int argc, char **env)
 {

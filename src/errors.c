@@ -6,11 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:37:42 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/24 16:31:58 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:24:35 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/pipex.h"
+#include "pipex.h"
 
 /**
  * @brief Prints an error message but don't exit the program
